@@ -51,7 +51,7 @@ class Quiz {
             img: "wrong/2.png"
         },
         {
-            text: "Eu sinto muito muito mesmo. Eu sou uma completa decepção! Posso tentar um última vez?",
+            text: "Eu sinto muito muito mesmo. Eu sou uma completa decepção! Posso tentar uma última vez?",
             img: "wrong/4.png"
         },
         {
