@@ -6,7 +6,7 @@
 
 body{
     font-family: Helvetica, sans-serif;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 
 #main-container{
@@ -15,7 +15,7 @@ body{
     height: 400px;
     min-height: 100vh;
     margin: auto;
-    padding: 10px 40px;
+    padding: 10px;
 }
 #main-container > div{
     transition: all 0.4s ease-in-out;
@@ -49,8 +49,8 @@ body{
 #menhera div#image-menhera{
     background: url("img/wrong/1.png") no-repeat center center /contain;
     width: auto;
-    height: 300px;
-    margin-bottom: 10px;
+    height: 250px;
+    margin-bottom: 5px;
 }
 
 #totalGuesses{
@@ -60,13 +60,13 @@ body{
 
 button{
     display: inline-block;
-    padding: 15px 20px;
+    padding: 10px 20px;
     border: none;
-    margin: 10px 5px;
+    margin: 5px;
     border-radius: 15px;
     outline: none;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 button:hover{
     opacity: 0.8;
@@ -132,7 +132,7 @@ footer#main-footer .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: #fff;
 }
 
