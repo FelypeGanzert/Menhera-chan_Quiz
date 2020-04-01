@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+#main-container{
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 10px 40px;
+}
+#main-container > div{
+    transition: all 0.4s ease-in-out;
+}
+
+.no-display{
+    display: none !important;
+}
+
+#menhera div{
+    flex: 1;
+}
+#menhera div#text{
+    border: solid #333 1px;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 5px;
+    position: relative;
+}
+#menhera div#text:after{
+    content: '';
+    border-color: #333 transparent transparent transparent;
+    border-width: 30px 30px;
+    border-style: solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(30px, 60px);
+}
+
+#menhera div#image-menhera{
+    background: url("img/wrong/1.png") no-repeat center center /contain;
+    width: auto;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+#totalGuesses{
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+button{
+    display: inline-block;
+    padding: 15px 20px;
+    border: none;
+    margin: 10px 5px;
+    border-radius: 15px;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+button:hover{
+    opacity: 0.8;
+}
+
+#btn-start, #play-again{
+    text-align: center;
+}
+
+#btn-start button, #play-again button{
+    background: #45b6fe;
+    color: #fff;
+}
+
+#btn-choices, #feedback{
+    display: flex;
+    justify-content: center;
+}
+#btn-choices button, #feedback button{
+    margin: 10px 25px;
+}
+
+#btn-choices #btn-yes{
+    background: #45b6fe;
+    color: #fff;
+}
+#btn-choices #btn-no{
+    border: #45b6fe 1px solid;
+    color: #333;
+    background: #fff;
+}
+
+#feedback button#right{
+    background: #45b6fe;
+    color: #fff;
+}
+#feedback button#wrong{
+    border: red 1px solid;
+    color: #333;
+    background: #fff;
+}
+
+.cursor{
+    border-right: #333 solid 1px;
+    padding-right: 2px;
+    animation: cursor-type 0.4s ease-in-out infinite;
+}
+
+@keyframes cursor-type{
+    from{
+        border-color: transparent;
+    }
+}
+
+footer#main-footer{
+    background: #333;
+    padding: 10px 20px;
+}
+
+footer#main-footer .container{
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+footer#main-footer .container a{
+    color: #45b6fe;
+    text-decoration: none;
+}
+footer#main-footer i {
+    display: inline-block;
+    padding: 5px;
+}
+footer#main-footer .container a:hover{
+    color: #9bd9ff;
+}
+
