@@ -141,7 +141,7 @@ footer#main-footer .container a{
 }
 footer#main-footer i {
     display: inline-block;
-    padding: 5px;
+    padding: 5px 10px;
 }
 footer#main-footer .container a:hover{
     color: #9bd9ff;
