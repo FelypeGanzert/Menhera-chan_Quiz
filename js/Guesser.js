@@ -1,6 +1,6 @@
 class Guesser {
 
-    constructor(initialNumber = 0, lastNumber = 1000) {
+    constructor(initialNumber = -1, lastNumber = 1000) {
         this.initialNumber = initialNumber;
         this.lastNumber = lastNumber;
         this.findNumber = false;
