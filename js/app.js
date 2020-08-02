@@ -36,8 +36,8 @@ let initialNumber = 0;
 let lastNumber = 1000;
 let totalGuess = 0;
 let quiz, guesser;
-let UItext, menheraImg;
-let currentQuestion, currentImage;
+let UItext, menheraImg, menheraVoice;
+let currentQuestion, currentImage, currentVoice;
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -52,12 +52,15 @@ async function init() {
     let questionIndex = Math.floor(Math.random() * questions.length);
     currentQuestion = questions[questionIndex]['text'];
     currentImage = questions[questionIndex]["img"];
+    currentVoice = questions[questionIndex]["voice"];
 
     // Get the elements of the text and of the image
     UItext = document.querySelector('#menhera .cursor');
     menheraImg = document.querySelector('#image-menhera');
+    menheraVoice = document.querySelector('#voice-menhera');
 
     changeImage(currentImage);
+    changeVoice(currentVoice);
     new TypeWriter(UItext, currentQuestion);
 }
 
@@ -75,7 +78,6 @@ document.querySelector('#btn-start').addEventListener('click', el => {
     document.querySelector('#btn-start').classList.toggle('no-display');
     document.querySelector('#totalGuesses').classList.toggle('no-display');
     document.querySelector('#btn-choices').classList.toggle('no-display');
-
     ask();
 })
 
@@ -94,6 +96,14 @@ function changeImage(imgPath) {
     menheraImg.style.backgroundImage = 'url("img/' + imgPath + '")';
 }
 
+// Function to change menhera Voice
+function changeVoice(voicePath) {
+    menheraVoice.setAttribute('src', `voices/${voicePath}`);
+}
+function playVoice() {
+    menheraVoice.play();
+}
+
 // Events for buttons Yes and No
 document.querySelector('#btn-choices').addEventListener('click', el => {
     el.preventDefault();
@@ -104,11 +114,11 @@ document.querySelector('#btn-choices').addEventListener('click', el => {
     } else if (el.target.id === 'btn-no') {
         guesser.answer('n');
         verify();
-    }    
+    }
 });
 
 // Verify if has find the number
-function verify(){
+function verify() {
     if (guesser.hasFind() || guesser.totalGuess > 11) {
         new TypeWriter(UItext, `Você está pensando no número ${guesser.getUserNumber()}?`, 60);
         document.querySelector('#btn-choices').classList.toggle('no-display');
@@ -128,12 +138,18 @@ document.querySelector('#feedback').addEventListener('click', el => {
         let rightIndex = Math.floor(Math.random() * rightMessages.length);
         message = rightMessages[rightIndex]['text'];
         currentImage = rightMessages[rightIndex]["img"];
+        currentVoice = rightMessages[rightIndex]["voice"];
+        changeVoice(currentVoice);
+        playVoice();
     } else if (el.target.id === 'wrong') {
         let wrongMessages = quiz.getWrongMessages();
         // Get a random wrong message
         let wrongIndex = Math.floor(Math.random() * wrongMessages.length);
         message = wrongMessages[wrongIndex]['text'];
         currentImage = wrongMessages[wrongIndex]["img"];
+        currentVoice = wrongMessages[wrongIndex]["voice"];
+        changeVoice(currentVoice);
+        playVoice();
     }
 
     new TypeWriter(UItext, message);
@@ -143,7 +159,7 @@ document.querySelector('#feedback').addEventListener('click', el => {
     document.querySelector('#play-again').classList.toggle('no-display');
 });
 
-document.querySelector('#restart').addEventListener('click', el =>{
+document.querySelector('#restart').addEventListener('click', el => {
     el.preventDefault();
     location.reload();
 })
